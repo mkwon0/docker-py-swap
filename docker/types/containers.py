@@ -163,7 +163,7 @@ class HostConfig(dict):
                  read_only=None, pid_mode=None, ipc_mode=None,
                  security_opt=None, ulimits=None, log_config=None,
                  mem_limit=None, memswap_limit=None, mem_reservation=None,
-                 kernel_memory=None, mem_swappiness=None, cgroup_parent=None,
+                 kernel_memory=None, mem_swappiness=None, mem_swapfile=None, cgroup_parent=None,
                  group_add=None, cpu_quota=None, cpu_period=None,
                  blkio_weight=None, blkio_weight_device=None,
                  device_read_bps=None, device_write_bps=None,
@@ -198,6 +198,13 @@ class HostConfig(dict):
 
             self['MemorySwappiness'] = mem_swappiness
 
+        if mem_swapfile is not None:
+            if not isinstance(mem_swapfile, str):
+                raise host_config_type_error(
+                    'mem_swapfile', mem_swapfile, 'str'
+                )
+
+            self['MemorySwapfile'] = mem_swapfile
         if shm_size is not None:
             if isinstance(shm_size, six.string_types):
                 shm_size = parse_bytes(shm_size)

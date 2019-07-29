@@ -621,6 +621,8 @@ class ContainerCollection(Collection):
             mem_reservation (int or str): Memory soft limit
             mem_swappiness (int): Tune a container's memory swappiness
                 behavior. Accepts number between 0 and 100.
+            mem_swapfile (str): Tune a container's memory swapfile
+                behavior.
             memswap_limit (str or int): Maximum amount of memory + swap a
                 container is allowed to consume.
             mounts (:py:class:`list`): Specification for mounts to be added to
@@ -1013,6 +1015,7 @@ RUN_HOST_CONFIG_KWARGS = [
     'mem_limit',
     'mem_reservation',
     'mem_swappiness',
+    'mem_swapfile',
     'memswap_limit',
     'mounts',
     'nano_cpus',

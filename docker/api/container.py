@@ -504,6 +504,8 @@ class ContainerApiMixin(object):
                 specified without a units character, bytes are assumed as an
             mem_swappiness (int): Tune a container's memory swappiness
                 behavior. Accepts number between 0 and 100.
+            mem_swapfile (str): Tune a container's memory swapfile
+                behavior.
             memswap_limit (str or int): Maximum amount of memory + swap a
                 container is allowed to consume.
             mounts (:py:class:`list`): Specification for mounts to be added to
